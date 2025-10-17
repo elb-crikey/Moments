@@ -178,6 +178,1171 @@
         }
 
         .btn-ase {
+            background: #2d7a9e;
+            color: white;
+        }
+
+        .btn-ase:hover {
+            background: #256a87;
+            transform: translateY(-2px);
+        }
+
+        .btn-later {
+            background: #8d3b72;
+            color: white;
+        }
+
+        .btn-later:hover {
+            background: #7a3363;
+        }
+
+        .btn-explore {
+            background: #3fb59e;
+            color: white;
+        }
+
+        .btn-explore:hover {
+            background: #35a08b;
+            transform: translateY(-2px);
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .category-card {
+            background: linear-gradient(135deg, #2d5f7a 0%, #1a4a5e 100%);
+            border-radius: 12px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(45, 95, 122, 0.4);
+            border-color: #3fb59e;
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-name {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: white;
+        }
+
+        .category-count {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+            margin-top: 0.25rem;
+        }
+
+        .moment-detail {
+            background: #16213e;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .moment-detail h2 {
+            color: #5b23b1;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .moment-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-tag {
+            background: rgba(91, 35, 177, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #3fb59e;
+        }
+
+        .moment-content {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .moment-steps {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .moment-steps li {
+            counter-increment: step-counter;
+            margin-bottom: 1rem;
+            padding-left: 2.5rem;
+            position: relative;
+        }
+
+        .moment-steps li:before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #5b23b1;
+            color: white;
+            width: 1.8rem;
+            height: 1.8rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .moment-notes {
+            background: rgba(0,0,0,0.2);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .moment-notes h3 {
+            color: #3fb59e;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .notes-input {
+            width: 100%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .moment-list {
+            list-style: none;
+        }
+
+        .moment-item {
+            background: #16213e;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-left: 4px solid #2d5f7a;
+        }
+
+        .moment-item:hover {
+            background: #1d2a4a;
+            border-left-color: #5b23b1;
+            transform: translateX(4px);
+        }
+
+        .moment-item-title {
+            font-weight: 500;
+            color: white;
+            margin-bottom: 0.25rem;
+        }
+
+        .moment-item-meta {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #5b23b1 0%, #663399 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(91, 35, 177, 0.4);
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 2000;
+            font-weight: 500;
+        }
+
+        .toast.show {
+            display: flex;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #5b23b1 0%, #663399 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #4a1d91 0%, #552b7a 100%);
+        }
+
+        .btn-secondary {
+            background: #2d5f7a;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #245066;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .back-btn {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .history-item {
+            background: #16213e;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            border-radius: 10px;
+            border-left: 4px solid #3fb59e;
+        }
+
+        .history-date {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 0.25rem;
+        }
+
+        .history-title {
+            color: white;
+            font-weight: 500;
+        }
+
+        .settings-section {
+            background: #16213e;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .settings-section h3 {
+            color: #3fb59e;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <button class="menu-btn" onclick="app.toggleSidebar()">☰</button>
+            <h1>Moments</h1>
+        </div>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Menu</h2>
+            <button class="close-btn" onclick="app.toggleSidebar()">×</button>
+        </div>
+        <ul class="sidebar-menu">
+            <li onclick="app.showView('home')">🏠 Home</li>
+            <li onclick="app.showView('library')">📚 Full Library</li>
+            <li onclick="app.showView('history')">📋 History</li>
+            <li onclick="app.showView('settings')">⚙️ Settings</li>
+        </ul>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="app.toggleSidebar()"></div>
+
+    <div class="container">
+        <!-- Home View -->
+        <div id="view-home" class="view active">
+            <div id="current-moment-container"></div>
+            <div id="categories-container"></div>
+        </div>
+
+        <!-- Category View -->
+        <div id="view-category" class="view">
+            <button class="back-btn" onclick="app.showView('home')">← Back</button>
+            <h2 id="category-title" style="color: #3fb59e; margin-bottom: 1.5rem;"></h2>
+            <ul id="category-moments" class="moment-list"></ul>
+        </div>
+
+        <!-- Detail View -->
+        <div id="view-detail" class="view">
+            <button class="back-btn" onclick="app.showView('home')">← Back</button>
+            <div id="moment-detail-container"></div>
+        </div>
+
+        <!-- Library View -->
+        <div id="view-library" class="view">
+            <h2 style="color: #3fb59e; margin-bottom: 1.5rem;">Full Library</h2>
+            <div id="library-container"></div>
+        </div>
+
+        <!-- History View -->
+        <div id="view-history" class="view">
+            <h2 style="color: #3fb59e; margin-bottom: 1.5rem;">History</h2>
+            <div id="history-container"></div>
+        </div>
+
+        <!-- Settings View -->
+        <div id="view-settings" class="view">
+            <h2 style="color: #3fb59e; margin-bottom: 1.5rem;">Settings</h2>
+            <div class="settings-section">
+                <h3>Notifications</h3>
+                <p style="color: rgba(255,255,255,0.7); margin-bottom: 1rem;">
+                    Permission: <span id="notification-status">Checking...</span>
+                </p>
+                <button id="enable-notifications-btn" class="btn btn-primary" style="display: none;" onclick="app.requestNotifications()">
+                    Enable Notifications
+                </button>
+            </div>
+            <div class="settings-section">
+                <h3>About</h3>
+                <p style="color: rgba(255,255,255,0.7);">
+                    Moments - Your personal self-care companion
+                </p>
+                <p style="color: rgba(255,255,255,0.5); font-size: 0.9rem; margin-top: 0.5rem;">
+                    Version 1.0
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+        const app = {
+            moments: [],
+            history: [],
+            snoozedMoments: {},
+            currentMoment: null,
+            selectedCategory: null,
+            selectedMoment: null,
+            currentView: 'home',
+
+            categoryIcons: {
+                'Focus/Calm Tools': '🎵',
+                'Movements': '💪',
+                'Body Awareness': '🧘',
+                'Mental Reframing': '💭',
+                'Position Changes': '🚶',
+                'Quieting': '🌊',
+                'Longer Care': '🌟'
+            },
+
+            init() {
+                this.loadData();
+                this.checkNotificationPermission();
+                this.renderHome();
+                this.pickRandomMoment();
+                
+                // Set up periodic moment picking
+                setInterval(() => this.pickRandomMoment(), this.getRandomInterval());
+            },
+
+            loadData() {
+                // Load moments
+                const savedMoments = localStorage.getItem('moments');
+                this.moments = savedMoments ? JSON.parse(savedMoments) : this.getInitialMoments();
+                
+                // Load history
+                const savedHistory = localStorage.getItem('history');
+                this.history = savedHistory ? JSON.parse(savedHistory) : [];
+                
+                // Load snoozed moments
+                const savedSnoozed = localStorage.getItem('snoozedMoments');
+                this.snoozedMoments = savedSnoozed ? JSON.parse(savedSnoozed) : {};
+            },
+
+            saveData() {
+                localStorage.setItem('moments', JSON.stringify(this.moments));
+                localStorage.setItem('history', JSON.stringify(this.history));
+                localStorage.setItem('snoozedMoments', JSON.stringify(this.snoozedMoments));
+            },
+
+            getInitialMoments() {
+                return [
+                    {
+                        id: 1,
+                        title: "Brain.fm",
+                        category: "Focus/Calm Tools",
+                        duration: "3-10 min",
+                        type: "tool",
+                        description: "Use Brain.fm for focus or relaxation.",
+                        link: "https://brain.fm",
+                        notes: ""
+                    },
+                    {
+                        id: 2,
+                        title: "Sensory goo timer",
+                        category: "Focus/Calm Tools",
+                        duration: "30 sec - 2 min",
+                        type: "tool",
+                        description: "Watch the sensory timer for a calming moment.",
+                        notes: ""
+                    },
+                    {
+                        id: 3,
+                        title: "Mynoise.net",
+                        category: "Focus/Calm Tools",
+                        duration: "3-10 min",
+                        type: "tool",
+                        description: "Explore ambient soundscapes on Mynoise.",
+                        link: "https://mynoise.net",
+                        notes: ""
+                    },
+                    {
+                        id: 5,
+                        title: "Muscle energy for right hip",
+                        category: "Movements",
+                        duration: "30 sec - 2 min",
+                        type: "movement",
+                        steps: [
+                            "Lift up with your leg",
+                            "Press down with your hand",
+                            "Push down with your leg",
+                            "Push up with your hands",
+                            "Repeat 3-5 times"
+                        ],
+                        notes: ""
+                    },
+                    {
+                        id: 6,
+                        title: "Muscle energy for neck",
+                        category: "Movements",
+                        duration: "30 sec - 2 min",
+                        type: "movement",
+                        steps: [
+                            "Place hand on same side of head",
+                            "Push with neck against hand",
+                            "Place hand on opposite side of head",
+                            "Push with neck against hand",
+                            "Repeat 3-5 times each side"
+                        ],
+                        notes: ""
+                    },
+                    {
+                        id: 7,
+                        title: "Muscle energy for back",
+                        category: "Movements",
+                        duration: "30 sec - 2 min",
+                        type: "movement",
+                        steps: [
+                            "Pelvic tilts: 5-10 repetitions",
+                            "Seated rotations: 5 each direction"
+                        ],
+                        notes: ""
+                    },
+                    {
+                        id: 8,
+                        title: "Somatic scanning",
+                        category: "Body Awareness",
+                        duration: "3-10 min",
+                        type: "technique",
+                        description: "Slowly scan through your body, noticing sensations without judgment.",
+                        notes: ""
+                    },
+                    {
+                        id: 9,
+                        title: "Body scan",
+                        category: "Body Awareness",
+                        duration: "3-10 min",
+                        type: "technique",
+                        description: "Progressive body scan from head to toe, releasing tension.",
+                        notes: ""
+                    },
+                    {
+                        id: 10,
+                        title: "Progressive muscle relaxation",
+                        category: "Body Awareness",
+                        duration: "3-10 min",
+                        type: "technique",
+                        description: "Tense and release each muscle group systematically.",
+                        notes: ""
+                    },
+                    {
+                        id: 11,
+                        title: "Thought swapping",
+                        category: "Mental Reframing",
+                        duration: "30 sec - 2 min",
+                        type: "technique",
+                        description: "Talk pain thoughts down by gently challenging and reframing them.",
+                        notes: ""
+                    },
+                    {
+                        id: 12,
+                        title: "Tapping",
+                        category: "Mental Reframing",
+                        duration: "30 sec - 2 min",
+                        type: "technique",
+                        description: "Use EFT tapping technique to remind yourself of your positive traits.",
+                        notes: ""
+                    },
+                    {
+                        id: 13,
+                        title: "Safety reminder",
+                        category: "Mental Reframing",
+                        duration: "30 sec - 2 min",
+                        type: "nudge",
+                        description: "Your body isn't in danger. You are safe right now.",
+                        notes: ""
+                    },
+                    {
+                        id: 14,
+                        title: "Changing locations",
+                        category: "Quieting",
+                        duration: "30 sec - 2 min",
+                        type: "action",
+                        description: "When feeling anxious, get up and move to a different location.",
+                        notes: ""
+                    },
+                    {
+                        id: 4,
+                        title: "EFT: Grenada snorkeling color",
+                        category: "Quieting",
+                        duration: "30 sec - 2 min",
+                        type: "technique",
+                        description: "Visualize the colors from Grenada snorkeling while tapping.",
+                        notes: ""
+                    },
+                    {
+                        id: 16,
+                        title: "Box breathing",
+                        category: "Quieting",
+                        duration: "30 sec - 2 min",
+                        type: "technique",
+                        description: "Breathe in for 4, hold for 4, out for 4, hold for 4. Repeat.",
+                        notes: ""
+                    },
+                    {
+                        id: 17,
+                        title: "5-1-5-1 breathing",
+                        category: "Quieting",
+                        duration: "30 sec - 2 min",
+                        type: "technique",
+                        description: "Heartbeat Breathing: Breathe in for 5, hold for 1, out for 5, hold for 1. Allow a heartbeat between each breath.",
+                        notes: ""
+                    },
+                    {
+                        id: 18,
+                        title: "Butterfly hug",
+                        category: "Quieting",
+                        duration: "30 sec - 2 min",
+                        type: "technique",
+                        description: "Cross your arms over your chest and gently tap your shoulders alternately.",
+                        notes: ""
+                    },
+                    {
+                        id: 19,
+                        title: "Soft eyes",
+                        category: "Quieting",
+                        duration: "30 sec - 2 min",
+                        type: "technique",
+                        description: "Soften your gaze and let your vision become peripheral, like in meditation.",
+                        notes: ""
+                    },
+                    {
+                        id: 20,
+                        title: "Toning/humming",
+                        category: "Quieting",
+                        duration: "30 sec - 2 min",
+                        type: "technique",
+                        description: "Make sustained vocal sounds (humming, 'ahhhh', 'ommm'). The vibration stimulates the vagus nerve. Can be done quietly.",
+                        notes: ""
+                    },
+                    {
+                        id: 15,
+                        title: "Schedule a massage",
+                        category: "Longer Care",
+                        duration: "30 sec - 2 min",
+                        type: "action",
+                        description: "Take a moment to schedule your next massage.",
+                        notes: ""
+                    }
+                ];
+            },
+
+            getRandomInterval() {
+                const minInterval = 2 * 60 * 60 * 1000; // 2 hours
+                const maxInterval = 4 * 60 * 60 * 1000; // 4 hours
+                return minInterval + Math.random() * (maxInterval - minInterval);
+            },
+
+            pickRandomMoment() {
+                const now = new Date();
+                const hour = now.getHours();
+                const day = now.getDay();
+                
+                let availableMoments = this.moments.filter(m => {
+                    // Weekend only moments
+                    if (m.category === 'Longer Care' && day !== 0 && day !== 6) {
+                        return false;
+                    }
+                    
+                    // Remove snoozed moments
+                    const snoozed = this.snoozedMoments[m.id];
+                    if (snoozed && new Date(snoozed.until) > now) {
+                        return false;
+                    }
+                    
+                    return true;
+                });
+
+                if (availableMoments.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * availableMoments.length);
+                    this.currentMoment = availableMoments[randomIndex];
+                    
+                    if (this.currentView === 'home') {
+                        this.renderCurrentMoment();
+                    }
+                    
+                    this.sendNotification(this.currentMoment);
+                }
+            },
+
+            checkNotificationPermission() {
+                if (typeof Notification !== 'undefined') {
+                    const status = document.getElementById('notification-status');
+                    const btn = document.getElementById('enable-notifications-btn');
+                    
+                    status.textContent = Notification.permission;
+                    
+                    if (Notification.permission !== 'granted') {
+                        btn.style.display = 'block';
+                    }
+                }
+            },
+
+            requestNotifications() {
+                if (typeof Notification !== 'undefined') {
+                    Notification.requestPermission().then(permission => {
+                        this.checkNotificationPermission();
+                        if (permission === 'granted') {
+                            this.showToast('✓ Notifications enabled');
+                        }
+                    });
+                }
+            },
+
+            sendNotification(moment) {
+                if (typeof Notification === 'undefined' || Notification.permission !== 'granted') {
+                    return;
+                }
+                
+                const notification = new Notification('💜 Moment Available', {
+                    body: moment.title,
+                    tag: 'moment-' + moment.id,
+                    requireInteraction: false
+                });
+
+                notification.onclick = () => {
+                    window.focus();
+                    this.selectedMoment = moment;
+                    this.showView('detail');
+                    notification.close();
+                };
+            },
+
+            toggleSidebar() {
+                const sidebar = document.getElementById('sidebar');
+                const overlay = document.getElementById('overlay');
+                sidebar.classList.toggle('open');
+                overlay.classList.toggle('show');
+            },
+
+            showView(viewName) {
+                this.currentView = viewName;
+                
+                // Hide all views
+                document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+                
+                // Show selected view
+                document.getElementById('view-' + viewName).classList.add('active');
+                
+                // Close sidebar
+                document.getElementById('sidebar').classList.remove('open');
+                document.getElementById('overlay').classList.remove('show');
+                
+                // Render the view
+                switch(viewName) {
+                    case 'home':
+                        this.renderHome();
+                        break;
+                    case 'category':
+                        this.renderCategory();
+                        break;
+                    case 'detail':
+                        this.renderDetail();
+                        break;
+                    case 'library':
+                        this.renderLibrary();
+                        break;
+                    case 'history':
+                        this.renderHistory();
+                        break;
+                    case 'settings':
+                        this.checkNotificationPermission();
+                        break;
+                }
+            },
+
+            showToast(message) {
+                const toast = document.getElementById('toast');
+                toast.textContent = message;
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            },
+
+            handleAse(moment) {
+                const now = new Date();
+                this.history.push({
+                    momentId: moment.id,
+                    momentTitle: moment.title,
+                    date: now.toISOString(),
+                    dateDisplay: now.toLocaleString()
+                });
+                
+                // Remove from snoozed
+                if (this.snoozedMoments[moment.id]) {
+                    delete this.snoozedMoments[moment.id];
+                }
+                
+                this.saveData();
+                this.showToast('✓ Moment honored');
+                
+                // Pick new moment
+                const availableMoments = this.moments.filter(m => m.id !== moment.id);
+                if (availableMoments.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * availableMoments.length);
+                    this.currentMoment = availableMoments[randomIndex];
+                } else {
+                    this.currentMoment = null;
+                }
+                
+                if (this.currentView === 'detail') {
+                    this.showView('home');
+                } else {
+                    this.renderCurrentMoment();
+                }
+            },
+
+            handleAnotherTime(moment) {
+                const now = new Date();
+                const snoozeCount = this.snoozedMoments[moment.id]?.count || 0;
+                
+                if (snoozeCount === 0) {
+                    const hour = now.getHours();
+                    let snoozeUntil;
+                    
+                    if (hour < 22) {
+                        snoozeUntil = new Date(now.getTime() + 2 * 60 * 60 * 1000);
+                    } else {
+                        snoozeUntil = new Date(now);
+                        snoozeUntil.setDate(snoozeUntil.getDate() + 1);
+                        snoozeUntil.setHours(9, 0, 0, 0);
+                    }
+                    
+                    this.snoozedMoments[moment.id] = { until: snoozeUntil.toISOString(), count: 1 };
+                } else {
+                    const tomorrow = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+                    this.snoozedMoments[moment.id] = { until: tomorrow.toISOString(), count: 2 };
+                }
+                
+                this.saveData();
+                
+                // Pick new moment
+                const availableMoments = this.moments.filter(m => m.id !== moment.id);
+                if (availableMoments.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * availableMoments.length);
+                    this.currentMoment = availableMoments[randomIndex];
+                } else {
+                    this.currentMoment = null;
+                }
+                
+                if (this.currentView === 'detail') {
+                    this.showView('home');
+                } else {
+                    this.renderCurrentMoment();
+                }
+            },
+
+            handleExplore(moment) {
+                this.selectedMoment = moment;
+                this.showView('detail');
+            },
+
+            renderCurrentMoment() {
+                const container = document.getElementById('current-moment-container');
+                
+                if (!this.currentMoment) {
+                    container.innerHTML = '';
+                    return;
+                }
+                
+                container.innerHTML = `
+                    <div class="current-moment">
+                        <h2>A moment for you</h2>
+                        <div class="moment-title">${this.currentMoment.title}</div>
+                        <div class="moment-actions">
+                            <button class="btn btn-ase" onclick="app.handleAse(app.currentMoment)">Ase ✓</button>
+                            <button class="btn btn-later" onclick="app.handleAnotherTime(app.currentMoment)">Another time</button>
+                            <button class="btn btn-explore" onclick="app.handleExplore(app.currentMoment)">Explore →</button>
+                        </div>
+                    </div>
+                `;
+            },
+
+            renderHome() {
+                this.renderCurrentMoment();
+                
+                const categories = [...new Set(this.moments.map(m => m.category))];
+                const container = document.getElementById('categories-container');
+                
+                container.innerHTML = `
+                    <div class="categories">
+                        ${categories.map(category => {
+                            const count = this.moments.filter(m => m.category === category).length;
+                            return `
+                                <div class="category-card" onclick="app.showCategory('${category}')">
+                                    <div class="category-icon">${this.categoryIcons[category] || '✨'}</div>
+                                    <div class="category-name">${category}</div>
+                                    <div class="category-count">${count} moment${count !== 1 ? 's' : ''}</div>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                `;
+            },
+
+            showCategory(category) {
+                this.selectedCategory = category;
+                this.showView('category');
+            },
+
+            renderCategory() {
+                const categoryMoments = this.moments.filter(m => m.category === this.selectedCategory);
+                const title = document.getElementById('category-title');
+                const container = document.getElementById('category-moments');
+                
+                title.innerHTML = `${this.categoryIcons[this.selectedCategory] || '✨'} ${this.selectedCategory}`;
+                
+                container.innerHTML = categoryMoments.map(moment => `
+                    <li class="moment-item" onclick="app.handleExplore(app.moments.find(m => m.id === ${moment.id}))">
+                        <div class="moment-item-title">${moment.title}</div>
+                        <div class="moment-item-meta">${moment.duration}</div>
+                    </li>
+                `).join('');
+            },
+
+            renderDetail() {
+                if (!this.selectedMoment) return;
+                
+                const container = document.getElementById('moment-detail-container');
+                
+                let contentHtml = '';
+                
+                if (this.selectedMoment.description) {
+                    contentHtml += `<p>${this.selectedMoment.description}</p>`;
+                }
+                
+                if (this.selectedMoment.steps) {
+                    contentHtml += `
+                        <ol class="moment-steps">
+                            ${this.selectedMoment.steps.map(step => `<li>${step}</li>`).join('')}
+                        </ol>
+                    `;
+                }
+                
+                if (this.selectedMoment.link) {
+                    contentHtml += `
+                        <p>
+                            <a href="${this.selectedMoment.link}" target="_blank" rel="noopener noreferrer" 
+                               style="color: #3fb59e;">
+                                Open ${this.selectedMoment.title} →
+                            </a>
+                        </p>
+                    `;
+                }
+                
+                container.innerHTML = `
+                    <div class="moment-detail">
+                        <h2>${this.selectedMoment.title}</h2>
+                        <div class="moment-meta">
+                            <span class="meta-tag">${this.selectedMoment.category}</span>
+                            <span class="meta-tag">${this.selectedMoment.duration}</span>
+                        </div>
+                        <div class="moment-content">
+                            ${contentHtml}
+                        </div>
+                        <div class="moment-notes">
+                            <h3>Personal Notes</h3>
+                            <textarea class="notes-input" id="moment-notes" 
+                                      placeholder="Add your own thoughts, modifications, or reminders...">${this.selectedMoment.notes || ''}</textarea>
+                        </div>
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;"
+                                onclick="app.saveNotes(); app.handleAse(app.selectedMoment)">
+                            Done ✓
+                        </button>
+                    </div>
+                `;
+            },
+
+            saveNotes() {
+                const notesInput = document.getElementById('moment-notes');
+                if (notesInput && this.selectedMoment) {
+                    this.selectedMoment.notes = notesInput.value;
+                    const momentIndex = this.moments.findIndex(m => m.id === this.selectedMoment.id);
+                    if (momentIndex !== -1) {
+                        this.moments[momentIndex].notes = notesInput.value;
+                        this.saveData();
+                    }
+                }
+            },
+
+            renderLibrary() {
+                const categories = [...new Set(this.moments.map(m => m.category))];
+                const container = document.getElementById('library-container');
+                
+                container.innerHTML = categories.map(category => {
+                    const categoryMoments = this.moments.filter(m => m.category === category);
+                    return `
+                        <div style="margin-bottom: 2rem;">
+                            <h3 style="color: #2d5f7a; margin-bottom: 1rem;">
+                                ${this.categoryIcons[category] || '✨'} ${category}
+                            </h3>
+                            <ul class="moment-list">
+                                ${categoryMoments.map(moment => `
+                                    <li class="moment-item" onclick="app.handleExplore(app.moments.find(m => m.id === ${moment.id}))">
+                                        <div class="moment-item-title">${moment.title}</div>
+                                        <div class="moment-item-meta">${moment.duration}</div>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    `;
+                }).join('');
+            },
+
+            renderHistory() {
+                const container = document.getElementById('history-container');
+                
+                if (this.history.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-state-icon">📋</div>
+                            <p>No moments completed yet</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                const sortedHistory = [...this.history].reverse();
+                container.innerHTML = sortedHistory.map(item => `
+                    <div class="history-item">
+                        <div class="history-date">${item.dateDisplay}</div>
+                        <div class="history-title">${item.momentTitle}</div>
+                    </div>
+                `).join('');
+            }
+        };
+
+        // Initialize app when page loads
+        window.addEventListener('DOMContentLoaded', () => app.init());
+    </script>
+</body>
+</html>
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .menu-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 280px;
+            height: 100%;
+            background: #16213e;
+            transition: left 0.3s ease;
+            z-index: 1000;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+            overflow-y: auto;
+        }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #5b23b1 0%, #2d5f7a 100%);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 1rem 0;
+        }
+
+        .sidebar-menu li {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            border-left: 4px solid transparent;
+        }
+
+        .sidebar-menu li:hover {
+            background: rgba(91, 35, 177, 0.2);
+            border-left-color: #5b23b1;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            z-index: 999;
+        }
+
+        .overlay.show {
+            display: block;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
+        }
+
+        .view {
+            display: none;
+        }
+
+        .view.active {
+            display: block;
+        }
+
+        .current-moment {
+            background: linear-gradient(135deg, #5b23b1 0%, #663399 100%);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(91, 35, 177, 0.3);
+        }
+
+        .current-moment h2 {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .moment-title {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .moment-actions {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.25rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+            flex: 1;
+            min-width: 80px;
+        }
+
+        .btn-ase {
             background: #3fb59e;
             color: white;
         }

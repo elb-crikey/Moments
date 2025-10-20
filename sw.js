@@ -1,11 +1,13 @@
-const CACHE_NAME = 'wellness-moments-v2';
-const urlsToCache = [
-    '/',
-    '/index.html',
-    '/styles.css',
-    '/app.js',
-    '/manifest.json'
-];
+   const CACHE_NAME = 'wellness-moments-v3';
+   const urlsToCache = [
+       '/',
+       '/index.html',
+       '/styles.css',
+       '/app.js',
+       '/manifest.json',
+       '/icon-192.png',
+       '/icon-512.png'
+   ];
 
 // Install service worker
 self.addEventListener('install', event => {

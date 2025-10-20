@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wellness-moments-v1';
+const CACHE_NAME = 'wellness-moments-v2';
 const urlsToCache = [
     '/',
     '/index.html',

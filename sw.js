@@ -31,7 +31,13 @@ self.addEventListener('fetch', event => {
     );
 });
 
-// Handle notification clicks
+Fix Service Worker Notification Click
+
+Go to GitHub → sw.js → Edit
+Find the notificationclick event listener (around line 27)
+Replace the entire event listener with this:
+
+javascript// Handle notification clicks
 self.addEventListener('notificationclick', event => {
     event.notification.close();
 
@@ -47,7 +53,6 @@ self.addEventListener('notificationclick', event => {
             clients.matchAll({ type: 'window' })
                 .then(clientList => {
                     if (clientList.length > 0) {
-                        // Send message to open client
                         clientList[0].postMessage({
                             type: 'snooze',
                             momentId: momentId
@@ -55,31 +60,29 @@ self.addEventListener('notificationclick', event => {
                     }
                 })
         );
-    } else if (action === 'explore' || !action) {
-        // Open app to moment detail
+    } else {
+        // No action or "explore" - open app to moment detail
+        const urlToOpen = momentId ? `/?moment=${momentId}` : '/';
+        
         event.waitUntil(
             clients.matchAll({ type: 'window', includeUncontrolled: true })
                 .then(clientList => {
-                    // Focus existing window if available
+                    // Check if app is already open
                     for (let client of clientList) {
-                        if ('focus' in client) {
-                            return client.focus().then(() => {
-                                client.postMessage({
-                                    type: 'showMoment',
-                                    momentId: momentId
-                                });
+                        if (client.url.includes(self.registration.scope) && 'focus' in client) {
+                            return client.focus().then(client => {
+                                return client.navigate(urlToOpen);
                             });
                         }
                     }
-                    // Open new window if no existing window
+                    // Open new window if app not open
                     if (clients.openWindow) {
-                        return clients.openWindow(`/?moment=${momentId}`);
+                        return clients.openWindow(urlToOpen);
                     }
                 })
         );
     }
 });
-
 // Listen for messages from the app
 self.addEventListener('message', event => {
     if (event.data && event.data.type === 'SKIP_WAITING') {

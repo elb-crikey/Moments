@@ -488,7 +488,7 @@ function showNotification(title, body, momentId) {
             const options = {
                 body: body,
                 icon: '/icon-192.png',
-                badge: '/icon-192.png',
+                badge: '/badge-96.png',
                 tag: momentId ? `moment-${momentId}` : 'general',
                 data: { momentId: momentId },
                 actions: momentId ? [

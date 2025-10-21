@@ -243,6 +243,13 @@ function initializeApp() {
     setupEventListeners();
     loadSettings();
     
+    // Check if opened from notification with moment ID
+    const urlParams = new URLSearchParams(window.location.search);
+    const momentId = urlParams.get('moment');
+    if (momentId) {
+        showMomentDetail(parseInt(momentId));
+    }
+    
     // Register service worker
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('sw.js')

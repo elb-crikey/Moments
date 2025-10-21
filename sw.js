@@ -1,4 +1,4 @@
-   const CACHE_NAME = 'wellness-moments-v3';
+   const CACHE_NAME = 'wellness-moments-v4';
    const urlsToCache = [
        '/',
        '/index.html',
@@ -6,7 +6,8 @@
        '/app.js',
        '/manifest.json',
        '/icon-192.png',
-       '/icon-512.png'
+       '/icon-512.png',
+       '/badge-96.png'
    ];
 
 // Install service worker

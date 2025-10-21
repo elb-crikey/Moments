@@ -233,6 +233,83 @@ let currentMoment = null;
 let notificationsEnabled = false;
 let snoozeTracking = {}; // Track snooze count per moment
 
+// Initialize Firebase Messaging
+let messaging = null;
+let fcmToken = null;
+
+function initializeFirebase() {
+    try {
+        // Initialize Firebase app
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
+        
+        // Get messaging instance
+        messaging = firebase.messaging();
+        
+        // Request permission and get token
+        requestFirebasePermission();
+        
+    } catch (error) {
+        console.error('Error initializing Firebase:', error);
+    }
+}
+
+async function requestFirebasePermission() {
+    try {
+        const permission = await Notification.requestPermission();
+        
+        if (permission === 'granted') {
+            console.log('Notification permission granted');
+            
+            // Get FCM token
+            const token = await messaging.getToken({
+                vapidKey: vapidKey
+            });
+            
+            if (token) {
+                fcmToken = token;
+                console.log('FCM Token:', token);
+                
+                // Save token to server
+                await saveTokenToServer(token);
+                
+                updateNotificationStatus(true);
+            }
+        } else {
+            updateNotificationStatus(false, 'Notification permission denied');
+        }
+    } catch (error) {
+        console.error('Error getting permission:', error);
+        updateNotificationStatus(false, 'Error enabling notifications');
+    }
+}
+
+async function saveTokenToServer(token) {
+    try {
+        // Get settings
+        const settings = loadSettings();
+        const dailyCount = settings.dailyCount || 7;
+        
+        // Save token and preferences to Firebase
+        await fetch('https://us-central1-moments-ase.cloudfunctions.net/registerDevice', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                token: token,
+                dailyCount: dailyCount,
+                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+            })
+        });
+        
+        console.log('Token saved to server');
+    } catch (error) {
+        console.error('Error saving token:', error);
+    }
+}
+
 // Initialize app
 document.addEventListener('DOMContentLoaded', () => {
     initializeApp();
@@ -242,6 +319,7 @@ function initializeApp() {
     checkNotificationStatus();
     setupEventListeners();
     loadSettings();
+    initializeFirebase();
     
     // Check if opened from notification with moment ID
     const urlParams = new URLSearchParams(window.location.search);
@@ -568,6 +646,10 @@ function saveSettings() {
     
     localStorage.setItem('settings', JSON.stringify(settings));
     scheduleNotifications();
+
+    if (fcmToken) {
+        saveTokenToServer(fcmToken);
+    }
 }
 
 function toggleNotifications() {

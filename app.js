@@ -239,6 +239,15 @@ let fcmToken = null;
 
 function initializeFirebase() {
     try {
+        // Check if already registered
+        const savedToken = localStorage.getItem('fcmToken');
+        if (savedToken && Notification.permission === 'granted') {
+            fcmToken = savedToken;
+            console.log('Already registered with FCM token:', savedToken);
+            updateNotificationStatus(true);
+            return; // Don't try to register again
+        }
+        
         // Initialize Firebase app
         if (!firebase.apps.length) {
             firebase.initializeApp(firebaseConfig);
@@ -247,14 +256,10 @@ function initializeFirebase() {
         // Get messaging instance
         messaging = firebase.messaging();
         
-        // Request permission and get token
-        requestFirebasePermission();
-        
     } catch (error) {
         console.error('Error initializing Firebase:', error);
     }
 }
-
 async function requestFirebasePermission() {
     try {
         const permission = await Notification.requestPermission();

@@ -267,15 +267,16 @@ async function requestFirebasePermission() {
                 vapidKey: vapidKey
             });
             
-            if (token) {
-                fcmToken = token;
-                console.log('FCM Token:', token);
-                
-                // Save token to server
-                await saveTokenToServer(token);
-                
-                updateNotificationStatus(true);
-            }
+if (token) {
+    fcmToken = token;
+    localStorage.setItem('fcmToken', token);  // ADD THIS LINE
+    console.log('FCM Token:', token);
+    
+    // Save token to server
+    await saveTokenToServer(token);
+    
+    updateNotificationStatus(true);
+}
         } else {
             updateNotificationStatus(false, 'Notification permission denied');
         }
@@ -337,13 +338,16 @@ function initializeApp() {
 }
 
 function checkNotificationStatus() {
-    if ('Notification' in window) {
-        if (Notification.permission === 'granted') {
-            updateNotificationStatus(true);
-            scheduleNotifications();
-        } else if (Notification.permission === 'denied') {
-            updateNotificationStatus(false, 'Notifications are blocked. Please enable them in your browser settings.');
-        }
+    // Check if we have a saved FCM token
+    const savedToken = localStorage.getItem('fcmToken');
+    
+    if (savedToken && Notification.permission === 'granted') {
+        // Already registered with Firebase
+        updateNotificationStatus(true);
+        fcmToken = savedToken;
+    } else {
+        // Need to register
+        updateNotificationStatus(false);
     }
 }
 
@@ -361,23 +365,16 @@ function updateNotificationStatus(enabled, message) {
             <p>${message || 'Enable notifications to receive your moments'}</p>
             <button id="enableNotifications" class="btn-primary">Enable Notifications</button>
         `;
-        document.getElementById('enableNotifications').addEventListener('click', requestNotificationPermission);
+        // Connect button to Firebase function
+        setTimeout(() => {
+            const btn = document.getElementById('enableNotifications');
+            if (btn) {
+                btn.addEventListener('click', requestFirebasePermission);
+            }
+        }, 100);
     }
 }
 
-function requestNotificationPermission() {
-    if ('Notification' in window) {
-        Notification.requestPermission().then(permission => {
-            if (permission === 'granted') {
-                updateNotificationStatus(true);
-                scheduleNotifications();
-                showNotification('Notifications enabled!', 'You\'ll now receive moments');
-            } else {
-                updateNotificationStatus(false, 'Notification permission denied');
-            }
-        });
-    }
-}
 
 function setupEventListeners() {
     // Navigation

@@ -239,16 +239,15 @@ let fcmToken = null;
 
 function initializeFirebase() {
     try {
-        // Check if already registered
+        // Check if already registered - load token into variable FIRST
         const savedToken = localStorage.getItem('fcmToken');
         if (savedToken && Notification.permission === 'granted') {
-            fcmToken = savedToken;
+            fcmToken = savedToken;  // Set the variable before checking status
             console.log('Already registered with FCM token:', savedToken);
-            updateNotificationStatus(true);
             return; // Don't try to register again
         }
         
-        // Initialize Firebase app
+        // Initialize Firebase app only if not already registered
         if (!firebase.apps.length) {
             firebase.initializeApp(firebaseConfig);
         }
@@ -322,10 +321,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initializeApp() {
-    checkNotificationStatus();
+    initializeFirebase();  // Load Firebase and saved token FIRST
+    checkNotificationStatus();  // THEN check status
     setupEventListeners();
     loadSettings();
-    initializeFirebase();
     
     // Check if opened from notification with moment ID
     const urlParams = new URLSearchParams(window.location.search);

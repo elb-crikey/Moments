@@ -242,7 +242,7 @@ let fcmToken = null;
 // ========== GLOBALS ==========
 let messaging = null;
 let fcmToken = null;
-const vapidKey = 'YOUR_PUBLIC_VAPID_KEY_HERE';   // replace with your actual key
+
 
 // ========== APP STARTUP ==========
 window.addEventListener('load', initializeApp);
